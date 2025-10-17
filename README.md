@@ -4,7 +4,7 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 
 ---
 
-## Weekly build status
+## Weekly build status (auto build with last esphome version)
 
 **ESP32 D1 Mini WROOM 32**  
 <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/devildant/acw02_esphome/main/.ci/badges/build-d1-mini.json&style=flat-square&label=Build&labelColor=1f2328" height="24"> &nbsp;
