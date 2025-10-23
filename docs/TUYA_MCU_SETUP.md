@@ -17,7 +17,7 @@ For more details about the Tuya MCU integration in ESPHome, refer to the officia
 
 ## 💬 Acknowledgments
 
-Special thanks to **@mrgnsrl** 🙌  
+Special thanks to **[@mrgnsrl](https://github.com/mrgnsrl)** 🙌  
 for identifying all the correct **Tuya MCU datapoints (DPIDs)** and for providing the initial working **ESPHome YAML configuration** that made this compatibility possible.  
 Your contribution greatly helps other Airton users integrate their AC units with ESPHome! 💡
 
@@ -223,8 +223,8 @@ select:
     name: "Oscillation Vertical"
     enum_datapoint: 107
     options:
-      0: "Off"
-      1: "On"
+      0: "Désactivé"
+      1: "Activé"
       2: "Position 1"
       3: "Position 2"
       4: "Position 3"
