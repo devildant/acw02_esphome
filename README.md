@@ -29,13 +29,15 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 
 
 ---
-
 ## ⚠️ Compatibility Warning  
 
 > **Important**  
 > - Works on most **Teknopoint** units *(unconfirmed but no known issues so far, see the [Community Compatibility List](#-community-compatibility-list))*.  
-> - Works on most **Airton** units, *(unconfirmed but no known issues so far, see the [Community Compatibility List](#-community-compatibility-list))*
-> - Exception **Airton**,  AC units using the module WIFI 409945 of Airton are not compatible with this module.  
+> - Works on most **Airton** units *(unconfirmed but no known issues so far, see the [Community Compatibility List](#-community-compatibility-list))*.  
+> - **Exception – Airton**: AC units using the **Wi-Fi module 409945** are **not compatible** with this firmware.  
+>   - These units use a **Tuya MCU UART protocol** (`55 AA 03 ...`) instead of the custom `7A 7A ...` protocol implemented here.  
+>   - You can still use **all provided hardware parts** (PCB, wiring, and 3D-printed enclosure) from this repository.  
+>   - For these models, use the **[ESPHome Tuya MCU integration](./TUYA_MCU_SETUP.md)** instead — a basic configuration example is provided in that document and can be adapted to your needs.  
 
 ---
 
