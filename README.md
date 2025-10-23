@@ -434,21 +434,21 @@ Please ensure you understand how to configure it with Home Assistant.
 
 ## ⚠️ Disclaimer & Safety Notice
 
-> 🚨 **IMPORTANT — PLEASE READ BEFORE USING**  
->  
-> Working with electrical devices, HVAC systems, and embedded electronics carries inherent risks.  
-> Proceed **only if you fully understand what you are doing** and have the proper knowledge and equipment.  
->  
-> - 🔌 Always disconnect power before modifying or connecting hardware.  
-> - ⚙️ Double-check wiring, pin assignments, and voltages before powering on.  
-> - 💥 Incorrect wiring or configuration may permanently damage your **AC unit**, **ESP module**, or **other connected components**.  
-> - 🔥 Electrical work should be done at your own risk and in compliance with local regulations.  
->
-> **I take no responsibility** for any direct, indirect, incidental, or consequential damages,  
-> including (but not limited to) **hardware failure, data loss, personal injury, fire, or electric shock** resulting from the use of this project.  
->  
-> By using the files, code, or documentation provided in this repository,  
-> you acknowledge that you do so **entirely at your own risk**.
+🚨 **IMPORTANT — PLEASE READ BEFORE USING**  
+
+ Working with electrical devices, HVAC systems, and embedded electronics carries inherent risks.  
+Proceed **only if you fully understand what you are doing** and have the proper knowledge and equipment.  
+
+- 🔌 Always disconnect power before modifying or connecting hardware.  
+- ⚙️ Double-check wiring, pin assignments, and voltages before powering on.  
+- 💥 Incorrect wiring or configuration may permanently damage your **AC unit**, **ESP module**, or **other connected components**.  
+- 🔥 Electrical work should be done at your own risk and in compliance with local regulations.  
+
+**I take no responsibility** for any direct, indirect, incidental, or consequential damages,  
+including (but not limited to) **hardware failure, data loss, personal injury, fire, or electric shock** resulting from the use of this project.  
+
+By using the files, code, or documentation provided in this repository,  
+you acknowledge that you do so **entirely at your own risk**.
 
 ---
 
