@@ -47,7 +47,6 @@ Based on actual Tuya MCU status dumps, the unit reports the following datapoints
 | **Vertical Swing** | `107` | enum | ✅ Yes | Reported correctly |
 | **Night / Sleep** | `109` | switch | ✅ Yes | Usually reported, but may lag |
 | **Purifier / Health** | `110` | switch | ✅ Yes | Reported correctly |
-| **Other DPs (108, 111–115)** | mixed | varies | 🟡 Partial | Not used in this config |
 
 ### 🔍 Technical Explanation
 In the Tuya MCU protocol (`55 AA 03 ...`), each datapoint is classified internally as:
