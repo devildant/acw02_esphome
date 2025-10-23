@@ -23,6 +23,42 @@ Your contribution greatly helps other Airton users integrate their AC units with
 
 ---
 
+## ⚠️ Known Limitation — Non-Reportable Switch Datapoints
+
+Some Tuya MCU datapoints used in this configuration behave as **“control-only” (write-only)** commands.  
+This means they execute a local action on the AC but **do not send back their state** to the Wi-Fi module —  
+neither during startup, nor when changed via the IR remote or front panel.
+
+### 🧩 Affected Switches
+| Entity | Datapoint | Behavior |
+|:--|:--:|:--|
+| **Display / Affichage** | `DP 13` | Write-only — never reported back |
+| **Purifier / Santé** | `DP 110` | Usually write-only — may not report |
+| **Night / Sleep** | `DP 109` | Often write-only — not always reported |
+| **Horizontal Swing / Oscillation horizontale** | `DP 106` | May or may not report depending on MCU |
+
+### 🔍 Technical Explanation
+In the Tuya MCU serial protocol (`55 AA 03 ...`), each datapoint is defined internally by the AC firmware as:
+- `R` – Readable (reported to the Wi-Fi module)
+- `W` – Writable (can be controlled from Wi-Fi)
+- `R/W` – Both readable and writable
+- `Write-only` – Executes a command locally, no status feedback
+
+The **Display switch (DP13)** and similar control DPs are usually marked as *write-only* by the MCU manufacturer.  
+Therefore:
+- The Wi-Fi module **can send the command**, and the action is applied.  
+- The AC **does not send any confirmation** or status change in return.  
+- ESPHome will **show the last known state**, which may differ if changed by remote.
+
+### 💡 Recommendation
+For these datapoints, you can:
+- Use `optimistic: true` or `restore_value: yes` in ESPHome to remember the last state locally.  
+- Treat them as **“unidirectional controls”** rather than stateful switches.
+
+*(Based on observations, Tuya MCU documentation, and community testing — not officially documented by Tuya for all models.)*
+
+---
+
 ## 🧠 Example ESPHome Configuration
 
 Edit the `substitutions` section (in yaml bellow) — you can modify:
