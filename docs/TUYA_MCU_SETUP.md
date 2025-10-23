@@ -39,7 +39,7 @@ Based on actual Tuya MCU status dumps, the unit reports the following datapoints
 |:--|:--:|:--:|:--:|:--|
 | **Power** | `1` | switch | ✅ Yes | Fully functional |
 | **Target Temp.** | `2` | int | ✅ Yes | Fully functional |
-| **Ambient Temp.** | `3` | int | ✅ Yes | Fully functional |
+| **Ambient Temp.** | `3` | int | ✅ Yes | Read-only |
 | **Mode** | `4` | enum | ✅ Yes | Fully functional |
 | **Fan Speed** | `5` | enum | ✅ Yes | Fully functional |
 | **Display / Affichage** | `13` | switch | ❌ No | Write-only — never reported |
