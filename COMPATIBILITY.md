@@ -8,7 +8,7 @@ _This file is generated from issues labeled `Compatibility`._
 |------------------|-----------|--------|-------|
 | 409944 | N/A | ❌ No | These air conditioners use the 409945 module, which although identical to the other wifi modules are different. |
 | 409943 | SMVH12L-3A1A3NB(I) | ❌ No | These air conditioners use the 409945 module, which although identical to the other wifi modules are different. |
-| 409942 | N/A | ❌ No | These air conditioners use the 409945 module, which although identical to the other wifi modules are different. |
+| 409942 | N/A | ⚠️ Partially (some functions missing) | These AC use the 409945 module, this module use tuya MCU, use the **[ESPHome Tuya MCU integration](./docs/TUYA_MCU_SETUP.md)** |
 | 409913 | SMVH09B-2A2A3NG | ✅ Yes | _No response_ |
 | 409730 | SMVH09B-2A2A3NH(I) | ✅ Yes | _No response_ |
 | 409733 | SMVH12B-3A2A3NG(I) | ✅ Yes | _No response_ |
