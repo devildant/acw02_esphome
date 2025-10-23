@@ -23,39 +23,46 @@ Your contribution greatly helps other Airton users integrate their AC units with
 
 ---
 
-## ⚠️ Known Limitation — Non-Reportable Switch Datapoints
+## ⚠️ Known Limitation — Non-Reportable Datapoints
 
-Some Tuya MCU datapoints used in this configuration behave as **“control-only” (write-only)** commands.  
-This means they execute a local action on the AC but **do not send back their state** to the Wi-Fi module —  
-neither during startup, nor when changed via the IR remote or front panel.
+The Tuya MCU used in the Airton 409945 Wi-Fi module does **not** report all datapoints (DPs) back to the ESP module.  
+Some DPs are **control-only (write-only)**, meaning they execute a command on the AC but **do not send any state feedback** —  
+neither at startup, nor during periodic status updates, nor after remote control changes.
 
-### 🧩 Affected Switches
-| Entity | Datapoint | Behavior |
-|:--|:--:|:--|
-| **Display / Affichage** | `DP 13` | Write-only — never reported back |
-| **Purifier / Santé** | `DP 110` | Usually write-only — may not report |
-| **Night / Sleep** | `DP 109` | Often write-only — not always reported |
-| **Horizontal Swing / Oscillation horizontale** | `DP 106` | May or may not report depending on MCU |
+### 🧾 Verified Observation
+Based on actual Tuya MCU status dumps, the unit reports the following datapoints:  
+`1–5, 8, 20–22, 101–115`  
+**DP13 (Display)** and a few others are **absent**, confirming that they are not part of the MCU’s reportable list.
+
+### 🧩 Datapoint Behavior Summary
+| Entity | Datapoint | Type | Reported by MCU | Behavior |
+|:--|:--:|:--:|:--:|:--|
+| **Power** | `1` | switch | ✅ Yes | Fully functional |
+| **Target Temp.** | `2` | int | ✅ Yes | Fully functional |
+| **Ambient Temp.** | `3` | int | ✅ Yes | Fully functional |
+| **Mode** | `4` | enum | ✅ Yes | Fully functional |
+| **Fan Speed** | `5` | enum | ✅ Yes | Fully functional |
+| **Display / Affichage** | `13` | switch | ❌ No | Write-only — never reported |
+| **Horizontal Swing** | `106` | enum | ✅ Yes | Reported correctly |
+| **Vertical Swing** | `107` | enum | ✅ Yes | Reported correctly |
+| **Night / Sleep** | `109` | switch | ✅ Yes | Usually reported, but may lag |
+| **Purifier / Health** | `110` | switch | ✅ Yes | Reported correctly |
+| **Other DPs (108, 111–115)** | mixed | varies | 🟡 Partial | Not used in this config |
 
 ### 🔍 Technical Explanation
-In the Tuya MCU serial protocol (`55 AA 03 ...`), each datapoint is defined internally by the AC firmware as:
-- `R` – Readable (reported to the Wi-Fi module)
-- `W` – Writable (can be controlled from Wi-Fi)
-- `R/W` – Both readable and writable
-- `Write-only` – Executes a command locally, no status feedback
+In the Tuya MCU protocol (`55 AA 03 ...`), each datapoint is classified internally as:
+- `R` — Readable (reported periodically to Wi-Fi)
+- `W` — Writable (can be controlled from Wi-Fi)
+- `R/W` — Read & Write
+- `Write-only` — Executes an action locally, without feedback
 
-The **Display switch (DP13)** and similar control DPs are usually marked as *write-only* by the MCU manufacturer.  
-Therefore:
-- The Wi-Fi module **can send the command**, and the action is applied.  
-- The AC **does not send any confirmation** or status change in return.  
-- ESPHome will **show the last known state**, which may differ if changed by remote.
+The **Display switch (DP13)** is defined as **write-only**,  
+and therefore it never appears in any Tuya MCU status message — confirmed by real UART logs.
 
-### 💡 Recommendation
-For these datapoints, you can:
-- Use `optimistic: true` or `restore_value: yes` in ESPHome to remember the last state locally.  
-- Treat them as **“unidirectional controls”** rather than stateful switches.
-
-*(Based on observations, Tuya MCU documentation, and community testing — not officially documented by Tuya for all models.)*
+### 💡 Recommendations
+- Treat these “write-only” datapoints (like Display) as **unidirectional controls**.  
+  ESPHome will keep the **last known state**, which might differ from the real device state if changed via remote.
+- For such entities, consider using `optimistic: true` or `restore_value: yes` in your YAML configuration.
 
 ---
 
@@ -278,6 +285,13 @@ select:
     options:
       0: "°C"
       1: "°F"
+  - platform: "tuya"
+    name: "Oscillation Horizontal"
+    enum_datapoint: 106
+    options:
+      0: "Désactivé"
+      1: "Activé"
+
 switch:
   - platform: "tuya"
     name: "Affichage"
@@ -288,9 +302,6 @@ switch:
   - platform: "tuya"
     name: "Nuit"
     switch_datapoint: 109
-  - platform: "tuya"
-    name: "Oscillation Horizontal"
-    switch_datapoint: 106
 
 ```
 
@@ -439,6 +450,13 @@ select:
     options:
       0: "°C"
       1: "°F"
+  - platform: "tuya"
+    name: "Horizontal swing"
+    enum_datapoint: 106
+    options:
+      0: "Off"
+      1: "On"
+
 switch:
   - platform: "tuya"
     name: "Display"
@@ -449,8 +467,5 @@ switch:
   - platform: "tuya"
     name: "Night"
     switch_datapoint: 109
-  - platform: "tuya"
-    name: "Horizontal swing"
-    switch_datapoint: 106
 
 ```
