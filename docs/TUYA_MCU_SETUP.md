@@ -189,6 +189,7 @@ uart:
 tuya:
 climate:
   - platform: tuya
+    id: acw02
     name: "Climatiseur"
     switch_datapoint: 1
     supports_heat: true
@@ -196,6 +197,11 @@ climate:
     target_temperature_datapoint: 2
     current_temperature_datapoint: 3
     temperature_multiplier: 0.1
+    on_state:
+      - lambda: |-
+          if (x.target_temperature < 10) {
+            id(acw02).target_temperature = x.target_temperature * 10;
+          }
     visual:
       min_temperature: 16
       max_temperature: 31
@@ -344,6 +350,7 @@ uart:
 tuya:
 climate:
   - platform: tuya
+    id: acw02
     name: "AC"
     switch_datapoint: 1
     supports_heat: true
@@ -351,6 +358,11 @@ climate:
     target_temperature_datapoint: 2
     current_temperature_datapoint: 3
     temperature_multiplier: 0.1
+    on_state:
+      - lambda: |-
+          if (x.target_temperature < 10) {
+            id(acw02).target_temperature = x.target_temperature * 10;
+          }
     visual:
       min_temperature: 16
       max_temperature: 31
