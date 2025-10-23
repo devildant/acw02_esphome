@@ -3,10 +3,10 @@ text:
     name: "MQTT: Broker"
     id: mqtt_broker_address_input
     entity_category: config
-    update_interval: never
+    update_interval: 60s
     mode: text
     lambda: |-
-      return id(ac_ctrl).get_mqtt_broker();
+      return std::string(id(ac_ctrl).get_mqtt_broker());
     set_action:
       then:
         - lambda: |-
@@ -17,10 +17,10 @@ text:
     name: "MQTT: Login"
     id: mqtt_login_input
     entity_category: config
-    update_interval: never
+    update_interval: 60s
     mode: text
     lambda: |-
-      return id(ac_ctrl).get_mqtt_username();
+      return std::string(id(ac_ctrl).get_mqtt_username());
     set_action:
       then:
         - lambda: |-
@@ -31,10 +31,10 @@ text:
     name: "MQTT: Password"
     id: mqtt_password_input
     entity_category: config
-    update_interval: never
+    update_interval: 60s
     mode: password
     lambda: |-
-      return id(ac_ctrl).get_mqtt_password();
+      return std::string(id(ac_ctrl).get_mqtt_password());
     set_action:
       then:
         - lambda: |-
@@ -44,11 +44,11 @@ text:
   - platform: template
     name: "MQTT: Port"
     id: mqtt_port_input
-    update_interval: never
+    update_interval: 60s
     mode: text
     entity_category: config
     lambda: |-
-      return id(ac_ctrl).int_to_string(id(ac_ctrl).get_mqtt_port());
+      return std::string(id(ac_ctrl).int_to_string(id(ac_ctrl).get_mqtt_port()));
     set_action:
       then:
         - lambda: |-
@@ -58,12 +58,12 @@ text:
   - platform: template
     name: "G1: Z-CMD Delay mute between cmd"
     id: mute_next_cmd_delay
-    update_interval: never
+    update_interval: 60s
     icon: mdi:volume-off
     mode: text
     entity_category: config
     lambda: |-
-      return id(ac_ctrl).int_to_string(id(ac_ctrl).get_mute_next_cmd_delay());
+      return std::string(id(ac_ctrl).int_to_string(id(ac_ctrl).get_mute_next_cmd_delay()));
     set_action:
       then:
         - lambda: |-
@@ -71,12 +71,12 @@ text:
   - platform: template
     name: "G1: Z-CMD Delay mute next cmd after AC on"
     id: mute_next_cmd_after_on_delay
-    update_interval: never
+    update_interval: 60s
     icon: mdi:volume-off
     mode: text
     entity_category: config
     lambda: |-
-      return id(ac_ctrl).int_to_string(id(ac_ctrl).get_mute_next_cmd_after_on_delay());
+      return std::string(id(ac_ctrl).int_to_string(id(ac_ctrl).get_mute_next_cmd_after_on_delay()));
     set_action:
       then:
         - lambda: |-
@@ -85,12 +85,12 @@ text:
   - platform: template
     name: "G1: Z-CMD Delai publish state after AC on"
     id: publish_stats_after_power_on_delay
-    update_interval: never
+    update_interval: 60s
     icon: mdi:publish
     mode: text
     entity_category: config
     lambda: |-
-      return id(ac_ctrl).int_to_string(id(ac_ctrl).get_publish_stats_after_power_on_delay());
+      return std::string(id(ac_ctrl).int_to_string(id(ac_ctrl).get_publish_stats_after_power_on_delay()));
     set_action:
       then:
         - lambda: |-
