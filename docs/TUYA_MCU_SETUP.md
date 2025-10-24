@@ -67,7 +67,7 @@ and therefore it never appears in any Tuya MCU status message — confirmed by r
 
 ## ❗ Notes
 
-This firmware version does not use **MQTT**, but if you want you can add it yourself in the yaml
+This firmware version does not use **MQTT**, but if you want you can add it yourself in the yaml.
 
 ---
 
