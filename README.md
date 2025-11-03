@@ -57,6 +57,29 @@ PS: If you encounter a problem, please post an issue before putting your incompa
 
 ---
 
+## ⚠️ After restoring a Home Assistant backup
+
+### Possible symptoms
+- Commands are no longer synchronized with Home Assistant  
+  (e.g. mode reverting after being changed).
+- Stuck states or entities not updating anymore.
+
+### Fix procedure if desynchronization occurs
+1. Remove the device from:
+   *Settings → Devices & Services → ESPHome*
+
+2. Remove the device from:
+   *Settings → Devices & Services → MQTT*
+
+3. **Add the device again** in:
+   *Settings → Devices & Services → ESPHome*
+
+4. **Restart the module**
+
+After this, synchronization should be restored.
+
+---
+
 ## 📋 Requirements
 
 - Home Assistant with **MQTT integration** enabled and properly configured
