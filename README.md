@@ -32,7 +32,6 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 - [⚠️ Compatibility Warning](#️-compatibility-warning)
 - [✅ Community Compatibility List](#-community-compatibility-list)
 - [📌 Contribute](#-contribute)
-- [⚠️ After restoring a Home Assistant backup](#️-after-restoring-a-home-assistant-backup)
 - [📋 Requirements](#-requirements)
 - [⚙️ Settings](#️-settings)
   - [📁 Base Configuration](#-base-configuration)
@@ -51,6 +50,7 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
   - [🧷 Assembly](#-assembly)
 - [🧾 Option: QR Code Info](#-option-qr-code-info)
 - [❗ Notes](#-notes)
+- [⚠️ After restoring a Home Assistant backup](#️-after-restoring-a-home-assistant-backup)
 - [⚠️ Disclaimer & Safety Notice](#️-disclaimer--safety-notice)
 - [🛡️ License](#️-license)
 
@@ -80,29 +80,6 @@ Help improve this project by reporting your unit compatibility.
 If your model is not referenced, please submit a report (**tested units only**):  
 👉 [Submit your unit](https://github.com/devildant/acw02_esphome/issues/new?template=unit_report.yml)  
 PS: If you encounter a problem, please post an issue before putting your incompatible model.
-
----
-
-## ⚠️ After restoring a Home Assistant backup
-
-### Possible symptoms
-- Commands are no longer synchronized with Home Assistant  
-  (e.g. mode reverting after being changed).
-- Stuck states or entities not updating anymore.
-
-### Fix procedure if desynchronization occurs
-1. Remove the device from:
-   *Settings → Devices & Services → ESPHome*
-
-2. Remove the device from:
-   *Settings → Devices & Services → MQTT*
-
-3. **Add the device again** in:
-   *Settings → Devices & Services → ESPHome*
-
-4. **Restart the module**
-
-After this, synchronization should be restored.
 
 ---
 
@@ -478,6 +455,29 @@ You can generate a QR code to store module information:
 
 This component requires **MQTT** to work properly.  
 Please ensure you understand how to configure it with Home Assistant.
+
+---
+
+## ⚠️ After restoring a Home Assistant backup
+
+### Possible symptoms
+- Commands are no longer synchronized with Home Assistant  
+  (e.g. mode reverting after being changed).
+- Stuck states or entities not updating anymore.
+
+### Fix procedure if desynchronization occurs
+1. Remove the device from:
+   *Settings → Devices & Services → ESPHome*
+
+2. Remove the device from:
+   *Settings → Devices & Services → MQTT*
+
+3. **Add the device again** in:
+   *Settings → Devices & Services → ESPHome*
+
+4. **Restart the module**
+
+After this, synchronization should be restored.
 
 ---
 
