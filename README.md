@@ -54,27 +54,6 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 - [⚠️ Disclaimer & Safety Notice](#️-disclaimer--safety-notice)
 - [🛡️ License](#️-license)
 
-
-| Section | Description |
-|--------|------------|
-| [Compatibility](#️-compatibility-warning) | Supported / unsupported AC units |
-| [Community list](#-community-compatibility-list) | List of confirmed working models |
-| [Contribute](#-contribute) | Submit compatibility reports |
-| [Requirements](#-requirements) | Needed software and setup |
-| [Configuration](#️-settings) | ESPHome YAML configuration |
-| [Build](#️-build) | Flashing instructions |
-| [Firmware update](#-update) | MQTT entity rebuild & updates |
-| [Interface details](#-interface-details) | Full entity & control overview |
-| [Jeedom note](#-bonus-jeedom-configuration) | Unofficial Jeedom info |
-| [Hardware](#-components) | Electronic parts list |
-| [Board selection](#️-choosing-the-esp32-board) | ESP32 model guidance |
-| [Wiring](#-pcb-soldering--wiring) | UART pinout & wiring notes |
-| [3D files](#-3d-files) | Printed case & mounts |
-| [QR code option](#-option-qr-code-info) | Generate module QR info |
-| [Notes](#-notes) | Technical notes / reminders |
-| [Backup restore note](#️-after-restoring-a-home-assistant-backup) | Fix sync issues after HA restore |
-| [Safety & Disclaimer](#️-disclaimer--safety-notice) | Safety warning |
-| [License](#️-license) | Licensing policy |
 ---
 ## ⚠️ Compatibility Warning  
 
