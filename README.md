@@ -469,7 +469,7 @@ Please ensure you understand how to configure it with Home Assistant.
 
 #### first solution:
 
-1. on esphome devices click on re build mqtt entitites
+1. On esphome devices (*Settings → Devices & Services → ESPHome*) click on G1: Rebuild MQTT entitites
 
 #### second solution (if first not solve the problem):
 
