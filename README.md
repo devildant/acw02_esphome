@@ -26,7 +26,33 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/devildant/acw02_esphome/main/.ci/badges/last_passing-xiao-c6.json&style=flat-square&label=Last%20passing&labelColor=1f2328" height="24"> &nbsp;
 <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/devildant/acw02_esphome/main/.ci/badges/problem-xiao-c6.json&style=flat-square&label=Problem%20version&labelColor=1f2328" height="24">
 
+---
+## 📑 Table of Contents
 
+- [⚠️ Compatibility Warning](#️-compatibility-warning)
+- [✅ Community Compatibility List](#-community-compatibility-list)
+- [📌 Contribute](#-contribute)
+- [⚠️ After restoring a Home Assistant backup](#️-after-restoring-a-home-assistant-backup)
+- [📋 Requirements](#-requirements)
+- [⚙️ Settings](#️-settings)
+  - [📁 Base Configuration](#-base-configuration)
+  - [📶 Wi-Fi & Web Server Configuration](#-wi-fi--web-server-configuration)
+- [🛠️ Build](#️-build)
+  - [📦 Update](#-update)
+- [🔍 Interface Details](#-interface-details)
+- [🏠 Bonus Jeedom Configuration](#-bonus-jeedom-configuration)
+- [📦 Components](#-components)
+  - [⚙️ Choosing the ESP32 Board](#️-choosing-the-esp32-board)
+- [🧵 PCB Soldering & Wiring](#-pcb-soldering--wiring)
+- [🧱 3D Files](#-3d-files)
+  - [🖨️ Printing Material](#️-printing-material)
+  - [📂 Available in the `3Dfiles/` directory](#-available-in-the-3dfiles-directory)
+  - [🔩 Components](#-components-1)
+  - [🧷 Assembly](#-assembly)
+- [🧾 Option: QR Code Info](#-option-qr-code-info)
+- [❗ Notes](#-notes)
+- [⚠️ Disclaimer & Safety Notice](#️-disclaimer--safety-notice)
+- [🛡️ License](#️-license)
 
 ---
 ## ⚠️ Compatibility Warning  
