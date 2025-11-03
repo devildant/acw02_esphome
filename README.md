@@ -466,6 +466,13 @@ Please ensure you understand how to configure it with Home Assistant.
 - Stuck states or entities not updating anymore.
 
 ### Fix procedure if desynchronization occurs
+
+#### first solution:
+
+1. on esphome devices click on re build mqtt entitites
+
+#### second solution (if first not solve the problem):
+
 1. Remove the device from:
    *Settings → Devices & Services → ESPHome*
 
