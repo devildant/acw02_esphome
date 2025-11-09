@@ -963,6 +963,7 @@ namespace esphome {
     void ACW02::mqtt_initializer() {
       if (mqtt_) {
         mqtt_->set_on_connect([this](bool first) {
+          mqtt_publish_queue_.clear();
           ESP_LOGW(TAG, "MQTT connected → publishing discovery and state");
           if (mqtt_connected_sensor_) mqtt_connected_sensor_->publish_state(true);
           set_timeout("mqtt_discovery_delay", 100, [this]() {
@@ -972,6 +973,7 @@ namespace esphome {
               }
               if (!mqtt_publish_queue_.empty()) {
                 const auto &entry = mqtt_publish_queue_.front();
+                ESP_LOGW(TAG, "mqtt_publish_queue_ publish to mqtt %s", entry.topic.c_str());
                 mqtt_->publish(entry.topic, entry.payload, entry.qos, entry.retain);
                 mqtt_publish_queue_.pop_front();
               }
@@ -983,8 +985,8 @@ namespace esphome {
                 // Convert to string
                 std::string payload = std::to_string(static_cast<long>(now));
 
-                // Publish retained, QoS 1
-                publish_async(app_name_ + "/last_seen", payload, 1, true);
+                // Publish retained false, QoS 1
+                publish_async(app_name_ + "/last_seen", payload, 1, false);
 
                 ESP_LOGW(TAG, "Heartbeat last_seen published (epoch): %s", payload.c_str());
               });
@@ -1065,6 +1067,13 @@ namespace esphome {
         mqtt_->set_on_disconnect([this](mqtt::MQTTClientDisconnectReason reason) {
           ESP_LOGW(TAG, "MQTT disconnected (reason=%d)", static_cast<int>(reason));
           if (mqtt_connected_sensor_) mqtt_connected_sensor_->publish_state(false);
+          this->cancel_interval("mqtt_publish_flush");
+          this->cancel_interval("hb_last_seen");
+          this->cancel_timeout("mqtt_discovery_delay");
+          ack_wait_ = false;
+          ack_block_until_ = 0;
+          timeout_retry_pending_ = false;
+          cmd_send_fingerprint_ = {0, "", {}, 0, 0};
         });
       }
     }
@@ -1241,8 +1250,10 @@ namespace esphome {
     }
 
     void ACW02::publish_state() {
-      if (!mqtt_)
+      if (!mqtt_) {
+        ESP_LOGE(TAG, "publish_state =====>>>> mqtt_ is false");
         return;
+      }
 
       if (publish_stats_after_power_on_delay_ > 0 && time_publish_stats_after_power_on_ > 0 && time_publish_stats_after_power_on_ > millis()) {
          set_timeout("publish_state_after_on", 100, [this]() {
@@ -1313,7 +1324,7 @@ namespace esphome {
       payload += "\"preset_name_config\":\"" + preset_name_config_ + "\",";
       payload += "\"cmd_failure_counter\":\"" + std::to_string(cmd_failure_counter_) + "\"";
       payload += "}";
-
+      ESP_LOGW(TAG, "publish_state send");
       publish_async(app_name_ + "/state", payload, 1, true);
     }
 
