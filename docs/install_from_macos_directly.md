@@ -26,8 +26,8 @@
 Install a specific ESPHome version via Homebrew:
 
 ```bash
-brew install esphome@2025.9.3
-esphome version  # should return 2025.9.3
+brew install esphome@2025.10.4
+esphome version  # should return 2025.10.4
 ```
 
 ---
