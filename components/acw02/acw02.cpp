@@ -948,11 +948,12 @@ namespace esphome {
           ESP_LOGW(TAG, "Wi-Fi OK; attempting MQTT connection…");
           mqtt_->enable();
           mqtt_initializer();
-          set_timeout("mqtt_retry", 5000, [this]() {
-            if (!mqtt_->is_connected()) {
-              mqtt_->disable();
-            }
-          });
+          // The code below is commented out because it can cause a bug with MQTT if it is stopped for a long time.
+          // set_timeout("mqtt_retry", 5000, [this]() {
+          //   if (!mqtt_->is_connected()) {
+          //     mqtt_->disable();
+          //   }
+          // });
         } else {
           ESP_LOGW(TAG, "Wi-Fi not connected; retrying in 5 s");
           set_timeout("mqtt_retry", 2000, [this]() { mqtt_connexion(); });
@@ -968,7 +969,12 @@ namespace esphome {
           if (mqtt_connected_sensor_) mqtt_connected_sensor_->publish_state(true);
           set_timeout("mqtt_discovery_delay", 100, [this]() {
             set_interval("mqtt_publish_flush", INTERVAL_MQTT_BETWEEN_CMD, [this]() {
-              if (!mqtt_ || !mqtt_->is_connected()) {
+              // The code below is commented out because it can cause a bug with MQTT if it is stopped for a long time.
+              // if (!mqtt_ || !mqtt_->is_connected()) {
+              //   ESP_LOGE(TAG, "mqtt_publish_flush return");
+              //   return;
+              // }
+              if (!mqtt_ ) {
                 return;
               }
               if (!mqtt_publish_queue_.empty()) {
