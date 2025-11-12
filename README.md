@@ -50,7 +50,6 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
   - [🧷 Assembly](#-assembly)
 - [🧾 Option: QR Code Info](#-option-qr-code-info)
 - [❗ Notes](#-notes)
-- [⚠️ After restoring a Home Assistant backup](#️-after-restoring-a-home-assistant-backup)
 - [⚠️ Disclaimer & Safety Notice](#️-disclaimer--safety-notice)
 - [🛡️ License](#️-license)
 
@@ -282,7 +281,8 @@ Several ESP32 boards can be used with this module. Each has its own pros and con
 #### LOLIN ESP32 C3 MINI
 - ✅ Built-in **reset** button on the case  
 - ✅ Better Wi-Fi signal compared to ESP32 D1 MINI WROOM 32  
-- ❌ No external antenna support  
+- ❌ No external antenna support
+- ❌ Trouble with modern WIFI router (qood singal but WIFI TX/RX very slow)
 
 #### XIAO ESP32 C3
 - ✅ External antenna support (Wi-Fi signal ≥ LOLIN ESP32 C3 MINI)  
@@ -455,36 +455,6 @@ You can generate a QR code to store module information:
 
 This component requires **MQTT** to work properly.  
 Please ensure you understand how to configure it with Home Assistant.
-
----
-
-## ⚠️ After restoring a Home Assistant backup
-
-### Possible symptoms
-- Commands are no longer synchronized with Home Assistant  
-  (e.g. mode reverting after being changed).
-- Stuck states or entities not updating anymore.
-
-### Fix procedure if desynchronization occurs
-
-#### first solution:
-
-1. On esphome devices (*Settings → Devices & Services → ESPHome*) click on G1: Rebuild MQTT entitites
-
-#### second solution (if first not solve the problem):
-
-1. Remove the device from:
-   *Settings → Devices & Services → ESPHome*
-
-2. Remove the device from:
-   *Settings → Devices & Services → MQTT*
-
-3. **Add the device again** in:
-   *Settings → Devices & Services → ESPHome*
-
-4. **Restart the module**
-
-After this, synchronization should be restored.
 
 ---
 
