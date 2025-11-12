@@ -278,11 +278,11 @@ Several ESP32 boards can be used with this module. Each has its own pros and con
 - ❌ Slightly weaker Wi-Fi signal due to component layout and antenna position  
 - ❌ No external antenna support  
 
-#### LOLIN ESP32 C3 MINI
+#### LOLIN ESP32 C3 MINI (Not recommended)
 - ✅ Built-in **reset** button on the case  
 - ✅ Better Wi-Fi signal compared to ESP32 D1 MINI WROOM 32  
 - ❌ No external antenna support
-- ❌ Trouble with modern WIFI router (qood singal but WIFI TX/RX very slow)
+- ❌ Trouble with modern WIFI router (qood singal but WIFI TX/RX very slow, i detect lot of difficulty with wifi 6 in 2.4GHZ)
 
 #### XIAO ESP32 C3
 - ✅ External antenna support (Wi-Fi signal ≥ LOLIN ESP32 C3 MINI)  
