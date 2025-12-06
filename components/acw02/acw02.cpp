@@ -1403,7 +1403,7 @@ namespace esphome {
       
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "climate") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "climate." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "stat_t": ")" + topic_base + R"(/state",
         "cmd_t": ")" + topic_base + R"(/cmd_ac/mode_climate",)";
@@ -1489,7 +1489,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "mode") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "select." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "icon": "mdi:thermostat",
         "cmd_t": ")" + topic_base + R"(/cmd_ac/mode",
@@ -1523,7 +1523,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "fan") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "select." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "icon": "mdi:fan",
         "cmd_t": ")" + topic_base + R"(/cmd_ac/fan",
@@ -1567,7 +1567,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "unit") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "select." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd_ac/unit",
         "stat_t": ")" + topic_base + R"(/state",
@@ -1600,7 +1600,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "swing") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "select." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "icon": "mdi:swap-vertical",
         "cmd_t": ")" + topic_base + R"(/cmd_ac/swing",
@@ -1634,7 +1634,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "swingHorizontal") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "select." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "icon": "mdi:swap-horizontal",
         "cmd_t": ")" + topic_base + R"(/cmd_ac/swing_horizontal",
@@ -1668,7 +1668,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "presetList") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "select." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "icon": "mdi:content-save",
         "cmd_t": ")" + topic_base + R"(/cmd_ac/presets_list_element",
@@ -1702,7 +1702,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "presetListConfig") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "select." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "entity_category": "config",
         "icon": "mdi:content-save",
@@ -1736,7 +1736,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "clean") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "icon": "mdi:spray-bottle",
         "cmd_t": ")" + topic_base + R"(/cmd_ac/clean",
@@ -1781,7 +1781,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "eco") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "icon": "mdi:currency-usd-off",
         "cmd_t": ")" + topic_base + R"(/cmd_ac/eco",
@@ -1828,7 +1828,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "display") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "icon": "mdi:lightbulb",
         "cmd_t": ")" + topic_base + R"(/cmd_ac/display",
@@ -1863,7 +1863,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "night") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd_ac/night",
         "stat_t": ")" + topic_base + R"(/state",
@@ -1908,7 +1908,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "purifier") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd_ac/purifier",
         "stat_t": ")" + topic_base + R"(/state",
@@ -1958,7 +1958,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "g1Mute") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/g1_mute",
         "stat_t": ")" + topic_base + R"(/state",
@@ -1999,7 +1999,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "resetEcoPurifier") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/g1_reset_eco_purifier",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2040,7 +2040,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "g1OptionRecalculateClimate") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/g1_option_recalculate_climate",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2081,7 +2081,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "disableModeAuto") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/disable_mode_auto",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2122,7 +2122,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "disableModeHeat") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/disable_mode_heat",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2163,7 +2163,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "disableModeDry") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/disable_mode_dry",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2204,7 +2204,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "disableModeFan") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/disable_mode_fan",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2245,7 +2245,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "disableSwingVertical") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/disable_swing_vertical",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2286,7 +2286,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "disableSwingHorizontal") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/disable_swing_horizontal",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2322,7 +2322,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "preset") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "switch." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/preset",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2363,7 +2363,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "ZCMDMuteDelay") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "text." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/g1_mute_next_cmd_delay",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2403,7 +2403,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "ZCMDMuteAfterOnDelay") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "text." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/g1_mute_next_cmd_after_on_delay",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2443,7 +2443,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "ZCMDPublishAfterOnDelay") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "text." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/g1_publish_stats_after_power_on_delay",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2478,7 +2478,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "presetName") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "text." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/preset_name_config",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2519,7 +2519,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "temp") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "number." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + "/cmd_ac/temp" + temp_suffix + R"(",
         "stat_t": ")" + topic_base + R"(/state",
@@ -2571,7 +2571,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "restartModule") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "button." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/g1_restart_module_ac",
         "icon": "mdi:restart",
@@ -2607,7 +2607,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "rebuildMQTT") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "button." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/g1_rebuild_mqtt_entities",
         "icon": "mdi:cloud-refresh-variant",
@@ -2643,7 +2643,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "getStatus") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "button." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/g1_get_status",
         "icon": "mdi:cloud-refresh-variant",
@@ -2679,7 +2679,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "disableValidate") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "button." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/z_config_validate",
         "icon": "mdi:send",
@@ -2710,7 +2710,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "presetSave") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "button." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/preset_save",
         "icon": "mdi:content-save",
@@ -2741,7 +2741,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "presetDelete") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "button." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "cmd_t": ")" + topic_base + R"(/cmd/preset_delete",
         "icon": "mdi:content-save",
@@ -2775,7 +2775,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "ambient") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "stat_t": ")" + topic_base + R"(/state",
         "unit_of_meas": ")" + unit + R"(",
@@ -2808,7 +2808,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "lastCmdOrigin") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "stat_t": ")" + topic_base + R"(/state",
         "icon" : "mdi:origin",
@@ -2839,7 +2839,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "filterToClean") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "binary_sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "stat_t": ")" + topic_base + R"(/state",
         "icon": "mdi:air-filter",
@@ -2873,7 +2873,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "warn") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "binary_sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "stat_t": ")" + topic_base + R"(/state",
         "icon": "mdi:alert-circle-outline",
@@ -2907,7 +2907,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "error") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "binary_sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "stat_t": ")" + topic_base + R"(/state",
         "icon": "mdi:alert-octagon-outline",
@@ -2941,7 +2941,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "cmdFailureCounter") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "stat_t": ")" + topic_base + R"(/state",
         "icon": "mdi:alert-box",
@@ -2974,7 +2974,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "warnText") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "stat_t": ")" + topic_base + R"(/state",
         "val_tpl": "{{ value_json.warn_text }}",
@@ -3005,7 +3005,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "errorText") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "stat_t": ")" + topic_base + R"(/state",
         "val_tpl": "{{ value_json.error_text }}",
@@ -3041,7 +3041,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "MDNS") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "entity_category": "diagnostic",
         "stat_t": ")" + topic_base + R"(/state",
@@ -3077,7 +3077,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "WiFiIP") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "entity_category": "diagnostic",
         "stat_t": ")" + topic_base + R"(/state",
@@ -3113,7 +3113,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "WiFiSSID") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "entity_category": "diagnostic",
         "stat_t": ")" + topic_base + R"(/state",
@@ -3149,7 +3149,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "WiFiBSSID") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "entity_category": "diagnostic",
         "stat_t": ")" + topic_base + R"(/state",
@@ -3185,7 +3185,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "WiFiMAC") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "entity_category": "diagnostic",
         "stat_t": ")" + topic_base + R"(/state",
@@ -3221,7 +3221,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "ESPVERSION") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "entity_category": "diagnostic",
         "icon": "mdi:new-box",
@@ -3258,7 +3258,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "WiFiSIGNAL") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "entity_category": "diagnostic",
         "icon": "mdi:wifi",
@@ -3295,7 +3295,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "INTERNALTEMP") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "entity_category": "diagnostic",
         "icon": "mdi:thermometer",
@@ -3332,7 +3332,7 @@ namespace esphome {
 
       std::string payload = R"({
         "name": ")" + get_localized_name(app_lang_, "ESPMEMORY") + R"(",
-        "object_id": ")" + unique_id + R"(",
+        "default_entity_id": ")" + "sensor." + unique_id + R"(",
         "unique_id": ")" + unique_id + R"(",
         "entity_category": "diagnostic",
         "stat_t": ")" + topic_base + R"(/state",
