@@ -12,7 +12,10 @@ You can install it from the Microsoft Store or directly from:
 Run PowerShell as administrator and execute:  
 ```powershell
 wsl --install
+wsl --install -d Ubuntu-22.04
 ```
+
+![usbipd list](../docker/images/docker%20desktop.PNG)
 
 ---
 
