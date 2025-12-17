@@ -390,9 +390,6 @@ interval:
           id(mute_next_cmd_after_on_delay).update();
           id(publish_stats_after_power_on_delay).update();
           id(address_sensor).update();
-          id(wifi__ip).update();
-          id(wifi__ssid).update();
-          id(wifi__bssid).update();
           id(wifi__signal).update();
           id(esp__temp).update();
           id(esp__memory).update();
