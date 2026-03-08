@@ -6,6 +6,7 @@ _This file is generated from issues labeled `Compatibility`._
 
 | Commercial Model | Ref Model | Status | Notes |
 |------------------|-----------|--------|-------|
+| 409683 | SMVH12B-2A2A3NH | ✅ Yes | _No response_ |
 | 409944 | N/A | ⚠️ Partially (some functions missing) | This AC use the 409945 module, this module use tuya MCU, look this doc  **[ACW02 ESPHome Tuya MCU integration](./docs/TUYA_MCU_SETUP.md)** |
 | 409943 | SMVH12L-3A1A3NB(I) | ⚠️ Partially (some functions missing) | This AC use the 409945 module, this module use tuya MCU, look this doc  **[ACW02 ESPHome Tuya MCU integration](./docs/TUYA_MCU_SETUP.md)** |
 | 409942 | N/A | ⚠️ Partially (some functions missing) | This AC use the 409945 module, this module use tuya MCU, look this doc  **[ACW02 ESPHome Tuya MCU integration](./docs/TUYA_MCU_SETUP.md)** |
