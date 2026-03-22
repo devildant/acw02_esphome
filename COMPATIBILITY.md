@@ -6,6 +6,7 @@ _This file is generated from issues labeled `Compatibility`._
 
 | Commercial Model | Ref Model | Status | Notes |
 |------------------|-----------|--------|-------|
+| 409936 | SMVH18B-4B2A3NM(I) | ✅ Yes | Le module fonctionne correctement, il y a bien toutes les fonctions. Par contre, je n'ai pas de jus venant de la clim, j'ai du alimenter le module via le port USB. Je ne sais pas si c'est lié à ma clim ou à ttes les clim de cette référence. |
 | 409683 | SMVH12B-2A2A3NH | ✅ Yes | _No response_ |
 | 409944 | N/A | ⚠️ Partially (some functions missing) | This AC use the 409945 module, this module use tuya MCU, look this doc  **[ACW02 ESPHome Tuya MCU integration](./docs/TUYA_MCU_SETUP.md)** |
 | 409943 | SMVH12L-3A1A3NB(I) | ⚠️ Partially (some functions missing) | This AC use the 409945 module, this module use tuya MCU, look this doc  **[ACW02 ESPHome Tuya MCU integration](./docs/TUYA_MCU_SETUP.md)** |
