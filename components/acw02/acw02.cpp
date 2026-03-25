@@ -265,7 +265,10 @@ namespace esphome {
           if (mode_ != Mode::COOL && mode_ != Mode::DRY) {
             mode_ = Mode::COOL;
           }
-          send_command_basic(build_frame());
+          // disable FP for first cmd with set mode compatible with clean (without that if the AC is in not compatible code, this genereate useless retry)
+          Frame_with_Fingerprint cmdWithoutFP = build_frame();
+          cmdWithoutFP.fingerprint = 0;
+          send_command_basic(cmdWithoutFP);
           force_clean_ = true;
           clean_ = on;
           set_timeout("clean_delay", 3000, [this, on]() {
