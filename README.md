@@ -69,6 +69,7 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 >   - In this configuration, the **original 12 V supply from the AC board must be disconnected** (but keep the GND) from the Wi-Fi/ACW02 connector to avoid back-powering or instability. (In this configuration, the polulu module is no longer necessary.)
 >   - example:
     https://www.amazon.fr/dp/B0DLK81PNN?ref=cm_sw_r_cso_cp_apin_dp_1YWFK08F028ZE3RDJSZV&social_share=cm_sw_r_cso_cp_apin_dp_1YWFK08F028ZE3RDJSZV&language=en_GB&currency=EUR
+    ![conv-220v-5v-usb.png](docs/images/conv-220v-5v-usb.png)
 >   - This converter needs to be connected to the main power supply of the indoor unit, which is normally 220v.
 >   - This issue appears to be related to the available current on specific board revisions and does not affect all Airton units.
 >   - Further community feedback is welcome to identify the affected board revisions more precisely.
