@@ -239,7 +239,7 @@ wifi_password3: "testesp32"
 
     ![JST order](PCB/images/components/connector%202.PNG)
 
-- **Configuration in yaml**:
+- **Configuration board in yaml**:
 ```yaml
  # LOLIN ESP32 C3 MINI
  board: lolin_c3_mini
