@@ -73,6 +73,7 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 >   - This converter needs to be connected to the main power supply of the indoor unit, which is normally 220v.
 >   - This issue appears to be related to the available current on specific board revisions and does not affect all Airton units.
 >   - Further community feedback is welcome to identify the affected board revisions more precisely.
+>   - All versions have affected my versions and that of Forhorse.
 
 
 ---
@@ -227,8 +228,17 @@ wifi_password3: "testesp32"
 - [Enable on Jeedom](docs/enable_on_jeedom.md)  
 
 ---
+### 📦 Components for Forhorse version (thanks to him)
+- **PCB**
+  - **[Forhorse PCB](https://github.com/devildant/acw02_esphome/blob/main/docs/version_Forhorse.md)**
+  ![Forhorse](PCB/images/pcb/Forhorse_PCB.png)  
 
-### 📦 Components
+- **Components**
+  - **[Connector: JST XA 2.5 male/male 4 pins (standard direction) (x1)](https://www.aliexpress.com/item/1005008857984831.html)** 
+
+    ![JST order](PCB/images/components/connector%202.PNG)
+
+### 📦 Components for original version (mine)
 
 - **[12V → 5V Regulator D24V10F5](https://shop.mchobby.be/fr/regulateurs/554--regul-5v-1a-step-down-d24v10f5-3232100005549-pololu.html)**  
   [Manufacturer](https://www.pololu.com/product/2831)  
