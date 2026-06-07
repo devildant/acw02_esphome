@@ -239,6 +239,12 @@ wifi_password3: "testesp32"
 
     ![JST order](PCB/images/components/connector%202.PNG)
 
+- **Configuration in yaml**:
+ # LOLIN ESP32 C3 MINI
+ board: lolin_c3_mini
+ TX: GPIO21
+ RX: GPIO20
+
 ### 📦 Components for original version (mine)
 
 - **[12V → 5V Regulator D24V10F5](https://shop.mchobby.be/fr/regulateurs/554--regul-5v-1a-step-down-d24v10f5-3232100005549-pololu.html)**  
