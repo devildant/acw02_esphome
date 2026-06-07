@@ -247,6 +247,61 @@ wifi_password3: "testesp32"
  RX: GPIO20
 ```
 
+- **(Optional) Additional configuration to add to the yaml file at the end (currently not linked to the firmware)**:
+```yaml
+## Start of the section for the STA LED
+# Off when everything is OK
+# slow blinking in case of warning (Wi-Fi connection issue, etc.)
+# fast blinking in case of error
+status_led:
+  pin:
+    number: GPIO03
+    inverted: true
+## End of the section for the STA LED
+
+## Start of the section for the remote temperature probe
+# Temperature probe
+sensor:
+  - platform: ntc
+    id: external_temperature_sensor
+    sensor: resistance_sensor
+    calibration:
+      b_constant: 3950
+      reference_temperature: 25°C
+      reference_resistance: 10kOhm
+    name: NTC Temperature
+
+  # Source sensors:
+  - platform: resistance
+    id: resistance_sensor
+    sensor: source_sensor
+    configuration: DOWNSTREAM
+    resistor: 10kOhm
+    name: Resistance Sensor
+    internal: True
+
+  - platform: adc
+    id: source_sensor
+    pin: GPIO01
+    attenuation: 12db
+    update_interval: never
+    internal: True
+
+switch:
+  - platform: gpio
+    pin: GPIO10
+    id: ntc_vcc
+    internal: True
+
+interval:
+  - interval: 10s #adjust frequency of measurement refresh here
+    then:
+      - switch.turn_on: ntc_vcc
+      - component.update: source_sensor
+      - switch.turn_off: ntc_vcc
+## End of the section for the remote temperature probe
+```
+
 ### 📦 Components for original version (mine)
 
 - **[12V → 5V Regulator D24V10F5](https://shop.mchobby.be/fr/regulateurs/554--regul-5v-1a-step-down-d24v10f5-3232100005549-pololu.html)**  
