@@ -62,7 +62,17 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 > - **Exception – Airton**: AC units using the **Wi-Fi module 409945** are **not compatible** with this firmware.  
 >   - These units use a **Tuya MCU UART protocol** (`55 AA 03 ...`) instead of the custom `7A 7A ...` protocol implemented here.  
 >   - You can still use **all provided hardware parts** (PCB, wiring, and 3D-printed enclosure) from this repository.  
->   - For these models, use this doc **[ACW02 ESPHome Tuya MCU integration](./docs/TUYA_MCU_SETUP.md)** instead — a basic configuration example is provided in that document and can be adapted to your needs.  
+>   - For these models, use this doc **[ACW02 ESPHome Tuya MCU integration](./docs/TUYA_MCU_SETUP.md)** instead — a basic configuration example is provided in that document and can be adapted to your needs.
+> - **Exception – Some Airton mainboards**: Certain Airton units using control boards with a reference similar to `SMVHXX-XBXXXXX` may provide insufficient power on the Wi-Fi module connector for an ESP32-based ACW02 replacement.
+>   - Symptoms may include random reboots, Wi-Fi instability, connection failures, or ESP32 brownout resets.
+>   - If you experience these issues, power the ACW02 module from an external **5 V USB supply** (micro usb, usb c... depends on the ESP32's USB connector) while keeping the UART connection to the AC unit.
+>   - In this configuration, the **original 12 V supply from the AC board must be disconnected** (but keep the GND) from the Wi-Fi/ACW02 connector to avoid back-powering or instability. (In this configuration, the polulu module is no longer necessary.)
+>   - example:
+    https://www.amazon.fr/dp/B0DLK81PNN?ref=cm_sw_r_cso_cp_apin_dp_1YWFK08F028ZE3RDJSZV&social_share=cm_sw_r_cso_cp_apin_dp_1YWFK08F028ZE3RDJSZV&language=en_GB&currency=EUR
+>   - This converter needs to be connected to the main power supply of the indoor unit, which is normally 220v.
+>   - This issue appears to be related to the available current on specific board revisions and does not affect all Airton units.
+>   - Further community feedback is welcome to identify the affected board revisions more precisely.
+
 
 ---
 
