@@ -67,6 +67,7 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 > - Some users are currently testing these USB-based units with minor PCB modifications, but this is **not officially supported for now**.  
 > - If there are reliable updates, PCB modification instructions may be added here later, if time allows.
 
+> > [!WARNING]
 > **Important**  
 > - Works on most **Teknopoint** units *(unconfirmed but no known issues so far, see the [Community Compatibility List](#-community-compatibility-list))*.  
 > - Works on most **Airton** units *(unconfirmed but no known issues so far, see the [Community Compatibility List](#-community-compatibility-list))*.
