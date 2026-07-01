@@ -59,13 +59,13 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 
 > [!CAUTION]
 > **USB connector AC units are not compatible with this firmware.**  
-> AC units using a **USB port as the Wi-Fi module connector** are not compatible with the `7A 7A ...` firmware provided here.  
-> These units are compatible with **Tuya MCU** instead.  
+> - AC units using a **USB port as the Wi-Fi module connector** are not compatible with the `7A 7A ...` firmware provided here.  
+> - These units are compatible with **Tuya MCU** instead.  
 >
-> The PCBs currently provided in this repository are designed to work with the original **12 V ACW02 connector**, while USB-based versions use **5 V**.  
+> - The PCBs currently provided in this repository are designed to work with the original **12 V ACW02 connector**, while USB-based versions use **5 V**.  
 >
-> Some users are currently testing these USB-based units with minor PCB modifications, but this is **not officially supported for now**.  
-> If there are reliable updates, PCB modification instructions may be added here later, if time allows.
+> - Some users are currently testing these USB-based units with minor PCB modifications, but this is **not officially supported for now**.  
+> - If there are reliable updates, PCB modification instructions may be added here later, if time allows.
 
 > **Important**  
 > - Works on most **Teknopoint** units *(unconfirmed but no known issues so far, see the [Community Compatibility List](#-community-compatibility-list))*.  
