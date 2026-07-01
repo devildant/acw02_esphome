@@ -57,7 +57,7 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 ---
 ## ⚠️ Compatibility Warning  
 
-> [!CAUTION]  
+> [!CAUTION] **New AC with USB connector** 
 > **USB connector AC units are not compatible with this firmware.**  
 > AC units using a **USB port as the Wi-Fi module connector** are not compatible with the `7A 7A ...` firmware provided here.  
 > These units are compatible with **Tuya MCU** instead.  
