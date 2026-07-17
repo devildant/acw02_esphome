@@ -28,7 +28,7 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 
 ---
 ## 📑 Table of Contents
-
+- [⏪ ESPHome Versions Before 2026.7.0](#-esphome-versions-before-202670)
 - [⚠️ Compatibility Warning](#️-compatibility-warning)
 - [✅ Community Compatibility List](#-community-compatibility-list)
 - [📌 Contribute](#-contribute)
@@ -55,6 +55,17 @@ Custom ESPHome component for **Teknopoint** and **Airton** (Airton ref: 409729) 
 - [🛡️ License](#️-license)
 
 ---
+
+## ⏪ ESPHome Versions Before 2026.7.0
+
+For builds using an ESPHome version earlier than `2026.7.0`, use the following legacy branch:
+
+[legacy/esphome-pre-2026.7](https://github.com/devildant/acw02_esphome/tree/legacy/esphome-pre-2026.7)
+
+The `main` branch is intended for ESPHome `2026.7.0` and later.
+
+---
+
 ## ⚠️ Compatibility Warning  
 
 > [!CAUTION]
@@ -215,7 +226,7 @@ wifi_password3: "testesp32"
 - [Build on Windows (native)](docs/install_from_windows_directly.md)  
 - [Build on MACOS (native)](docs/install_from_macos_directly.md)
 - [Build on Windows with Docker](docs/install_from_docker_win.md)
-- Build with ESPHome Builder (2025.7.5 minimum) with Home Assistant add-on:  
+- Build with ESPHome Builder (2026.7.0 minimum) with Home Assistant add-on:  
   Use the files in the [`HA-esphome-builder`](HA-esphome-builder) folder with the Home Assistant ESPHome add-on:  
   - [`ha-esphome-builder-acw02-fr.yaml`](HA-esphome-builder/ha-esphome-builder-acw02-fr.yaml) – version française  
   - [`ha-esphome-builder-acw02-en.yaml`](HA-esphome-builder/ha-esphome-builder-acw02-en.yaml) – English version  

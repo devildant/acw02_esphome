@@ -30,10 +30,9 @@ substitutions:
 esphome:
   name: ${dev_name}
   friendly_name: ${dev_friendly}
-  platformio_options:
-    build_flags:
-      - -DDLOCALE_LANG=\"${lang}\"
-      - -DDBOARD=\"${board}\"
+  build_flags:
+    - -DDLOCALE_LANG=\"${lang}\"
+    - -DDBOARD=\"${board}\"
 
 esp32:
   board: ${board}
@@ -45,6 +44,7 @@ web_server:
   auth:
     username: ${web_server_username}
     password: ${web_server_password}
+    type: digest
   version: 3
   log: true
   local : true

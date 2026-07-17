@@ -205,7 +205,7 @@ switch:
       - lambda: id(ac_ctrl).set_option_recalculate_climate(false);
 
   - platform: template
-    name: "G1: Mode éteint reset Eco/Purificateur"
+    name: "G1: Mode éteint reset Eco⁄Purificateur"
     id: reset_eco_purifier_ac_off
     icon: mdi:lock-reset
     entity_category: "config"

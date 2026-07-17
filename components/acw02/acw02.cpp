@@ -2,6 +2,8 @@
 #include "esphome/core/log.h"
 #include "esphome/core/helpers.h"
 
+#include <cinttypes>
+
 #ifdef CONFIG_IDF_TARGET_ESP32C6
 #include "driver/gpio.h"
 #endif
@@ -259,7 +261,7 @@ namespace esphome {
 
     void ACW02::set_clean(bool on) {
       if (on != clean_) {
-        if (on && (power_on_ || mode_ != Mode::COOL && mode_ != Mode::DRY))
+        if (on && (power_on_ || (mode_ != Mode::COOL && mode_ != Mode::DRY)))
         {
           power_on_ = false;
           if (mode_ != Mode::COOL && mode_ != Mode::DRY) {
@@ -292,7 +294,7 @@ namespace esphome {
         if (temp > 31) temp = 31;
         target_temp_f_ = static_cast<uint8_t>(celsius_to_fahrenheit(temp));
         target_temp_c_ = static_cast<uint8_t>(temp);
-        if ((!eco_ && mode_ != Mode::AUTO || !power_on_)) {
+        if ((!eco_ && mode_ != Mode::AUTO) || !power_on_) {
           return true;
         } else {
           set_timeout("publishStateDelay", 100, [this, oldC, oldF]() {
@@ -314,7 +316,7 @@ namespace esphome {
         if (temp > 88) temp = 88;
         target_temp_f_ = static_cast<uint8_t>(temp);
         target_temp_c_ = static_cast<uint8_t>(fahrenheit_to_celsius(temp));
-        if ((!eco_ && mode_ != Mode::AUTO || !power_on_)) {
+        if ((!eco_ && mode_ != Mode::AUTO) || !power_on_) {
           return true;
         } else {
           set_timeout("publishStateDelay", 100, [this, oldC, oldF]() {
@@ -771,7 +773,15 @@ namespace esphome {
     }
 
     std::string ACW02::get_address() {
-      return wifi::global_wifi_component->get_use_address();
+      if (wifi::global_wifi_component != nullptr) {
+        const char *address = wifi::global_wifi_component->get_use_address();
+
+        if (address != nullptr && address[0] != '\0') {
+          return std::string(address);
+        }
+      }
+
+      return App.get_name() + ".local";
     }
 
     std::string ACW02::get_mode_string_climate() const {
@@ -1184,7 +1194,7 @@ namespace esphome {
 
         if (!preset.name.empty()) {
           ESP_LOGI(TAG, "Preset %d frame found with %d octets", preset.index, preset.frame_with_fp.frame.size());
-          ESP_LOGW(TAG, "Preset \"%s\" frame: %s fingerprint: 0x%08X", preset.name.c_str(), format_hex_pretty(preset.frame_with_fp.frame).c_str(), preset.frame_with_fp.fingerprint);
+          ESP_LOGW(TAG, "Preset \"%s\" frame: %s fingerprint: 0x%08" PRIX32, preset.name.c_str(), format_hex_pretty(preset.frame_with_fp.frame).c_str(), preset.frame_with_fp.fingerprint);
           size_t pos = preset.name.find(" (empty)");
           if (pos != std::string::npos) {
             preset.name = "Preset";
@@ -1229,12 +1239,14 @@ namespace esphome {
       bool changed = !compare_fingerprints(start_f, end_f);
 
       ESP_LOGW(TAG,
-        "DECIDE cmd=%s fp_start=0x%08X fp_end=0x%08X changed=%d | before{pwr=%d,mode=%d,temp_enc=%u} after{pwr=%d,mode=%d,temp_enc=%u}",
+        "DECIDE cmd=%s fp_start=0x%08" PRIX32
+        " fp_end=0x%08" PRIX32
+        " changed=%d | before{pwr=%d,mode=%d,temp_enc=%u} after{pwr=%d,mode=%d,temp_enc=%u}",
         cmd.c_str(), start_f, end_f, (int)changed,
         (int)was_power, (int)was_mode, (unsigned)encode_temperature_byte(),
         (int)power_on_, (int)mode_, (unsigned)encode_temperature_byte());
 
-      ESP_LOGW(TAG, "mqtt_callback_ compare_fingerprints 0x%08X 0x%08X", start_f, end_f);
+      ESP_LOGW(TAG,"mqtt_callback_ compare_fingerprints 0x%08" PRIX32 " 0x%08" PRIX32, start_f, end_f);
       if (tmp_send_cmd && changed) {
         ESP_LOGW(TAG, "mqtt_callback_ send_command");
         send_command(isDisplayCmd);
@@ -3498,7 +3510,7 @@ namespace esphome {
       // Bounded pseudo-random value
       uint32_t jitter = jitter_min + (seed % (jitter_max - jitter_min + 1));
 
-      ESP_LOGW(TAG, "Retry jitter (tryCnt=%d) = %u ms", tryCnt, jitter);
+      ESP_LOGW(TAG, "Retry jitter (tryCnt=%d) = %" PRIu32 " ms", tryCnt, jitter);
       return jitter;
     }
 
@@ -4253,14 +4265,15 @@ namespace esphome {
       {
         ESP_LOGE(TAG, "%s", from.c_str());
         char buftx[255];
-        snprintf(buftx, sizeof(buftx), "Fingerprint TX = 0x%08X -> %s", fp.fingerprint, fp.description.c_str());
+        snprintf(buftx, sizeof(buftx),
+        "Fingerprint TX = 0x%08" PRIX32 " -> %s", fp.fingerprint, fp.description.c_str());
         ESP_LOGE(TAG, "%s", buftx);
         char bufrx[255];
-        snprintf(bufrx, sizeof(bufrx), "Fingerprint RX = 0x%08X -> %s", tfp.fingerprint, tfp.description.c_str());
+        snprintf(bufrx, sizeof(bufrx), "Fingerprint RX = 0x%08" PRIX32 " -> %s", tfp.fingerprint, tfp.description.c_str());
         ESP_LOGE(TAG, "%s", bufrx);    
       } else {
         char buf[255];
-        snprintf(buf, sizeof(buf), "%s : Fingerprint = 0x%08X -> %s", from.c_str(), fp.fingerprint, fp.description.c_str());
+        snprintf(buf, sizeof(buf), "%s : Fingerprint = 0x%08" PRIX32 " -> %s", from.c_str(), fp.fingerprint, fp.description.c_str());
         ESP_LOGW(TAG, "%s", buf);
       }
       
@@ -4354,7 +4367,7 @@ namespace esphome {
           preset.name = std::to_string(preset.index) + " " + new_name;
           preset.frame_with_fp.description = "presets \"" + preset.name + "\"";
           save_single_preset_to_flash(preset);
-          ESP_LOGW(TAG, "Save Preset: \"%s\" frame: %s fingerprint: 0x%08X", preset.name.c_str(), format_hex_pretty(preset.frame_with_fp.frame).c_str(), preset.frame_with_fp.fingerprint);
+          ESP_LOGW(TAG, "Save Preset: \"%s\" frame: %s fingerprint: 0x%08" PRIX32, preset.name.c_str(), format_hex_pretty(preset.frame_with_fp.frame).c_str(), preset.frame_with_fp.fingerprint);
           presets_list_element_config_ = PRESETS_LIST_ELEMENT_CONFIG_DEFAULT;
           publish_discovery_preset_select(true);
           publish_discovery_preset_config_select(true);

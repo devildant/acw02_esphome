@@ -3,6 +3,7 @@ services:
     build:
       context: .
       args:
+        PYTHON_VERSION: ${PYTHON_VERSION}
         ESPHOME_VERSION: ${ESPHOME_VERSION}
     container_name: esphome-builder-ota
     volumes:
@@ -14,6 +15,7 @@ services:
     build:
       context: .
       args:
+        PYTHON_VERSION: ${PYTHON_VERSION}
         ESPHOME_VERSION: ${ESPHOME_VERSION}
     container_name: esphome-builder-usb
     volumes:
@@ -27,6 +29,7 @@ services:
     build:
       context: .
       args:
+        PYTHON_VERSION: ${PYTHON_VERSION}
         ESPHOME_VERSION: ${ESPHOME_VERSION}
     container_name: esphome-builder-usb-c3c6
     volumes:
