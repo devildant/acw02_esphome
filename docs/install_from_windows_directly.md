@@ -2,7 +2,7 @@
 
 ### 🐍 Python
 
-Install Python 3.12 from the Microsoft Store.
+Install Python >=3.12 from the Microsoft Store.
 
 ---
 
