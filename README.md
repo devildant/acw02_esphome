@@ -597,7 +597,7 @@ you acknowledge that you do so **entirely at your own risk**.
 
 This repository uses multiple licenses depending on content type:
 
-- **Code** (`*.yaml`, `*.cpp`, `*.h`) — [PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0/)
+- **Code** (`*.yaml`, `*.cpp`, `*.h`) — [PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0)
 
 - **PCB files** (`*.zip`, `*.json`) — [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
