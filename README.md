@@ -597,8 +597,12 @@ you acknowledge that you do so **entirely at your own risk**.
 
 This repository uses multiple licenses depending on content type:
 
-- **Code** (`*.yaml`, `*.cpp`, `*.h`) — [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html)
+- **Code** (`*.yaml`, `*.cpp`, `*.h`) — [PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0/)
+
 - **PCB files** (`*.zip`, `*.json`) — [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 - **3D models** (`*.f3d`, `*.stl`) — [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-> Commercial use of PCB and 3D files is **strictly prohibited**.
+> **Commercial use of the source code, PCB files, and 3D models is prohibited without prior permission from the copyright holder.**
+>
+> Personal and non-commercial use, modification, and redistribution are permitted under the terms of their respective licenses.
