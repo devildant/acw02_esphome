@@ -61,6 +61,8 @@ api:
 ota:
   - platform: esphome
     password: ${ota_password}
+    encryption:
+      allow_plaintext_upload: true
   - platform: web_server
 
 wifi:

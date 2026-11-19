@@ -11,6 +11,14 @@
 namespace esphome {
   namespace acw02 {
 
+    static std::string format_hex_pretty(const std::vector<uint8_t> &data) {
+      if (data.empty()) return "";
+      std::string result(format_hex_pretty_size(data.size()), '\0');
+      format_hex_pretty_to(result.data(), result.size(), data.data(), data.size());
+      result.resize(result.size() - 1);
+      return result;
+    }
+
     void ACW02::setup() {
       #if defined(DLOCALE_LANG)
         app_lang_ = DLOCALE_LANG;
@@ -1385,6 +1393,7 @@ namespace esphome {
         "name": ")" + app_friendly_name_ + R"(",
         "mdl": ")" + app_board_ + R"(",
         "mf": "Espressif",
+        "sw_version": ")" + app_esp_version_ + R"(",
         "cns": [["mac",")" + app_mac_ + R"("]]
       })";
     }
